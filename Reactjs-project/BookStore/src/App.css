@@ -222,3 +222,21 @@ body {
     padding: 24px;
   }
 }
+
+.book_details{
+                display: flex; 
+                border:1px solid #efa3a3;
+                border-radius: 10px;
+                margin: 10px;
+                padding: 10px;
+                flex-direction: row; /*column, row, column-reverse, row-reverse */
+                justify-content:space-around;
+ /* center,left, right,flex-start,flex-end, space-around, space-evenly and space-between */
+            }
+            .books{
+                border:1px solid #0abe64;
+                border-radius: 10px;
+                margin: 10px;
+                padding: 10px;
+
+            }
