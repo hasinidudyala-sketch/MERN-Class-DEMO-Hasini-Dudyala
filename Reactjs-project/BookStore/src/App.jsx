@@ -3,9 +3,62 @@ import Adminlogin from './Adminlogin'
 import Books from './Books'
 import Login from './Login'
 import Register from './Register'
+import {useState} from 'react'
+import ButtonClicked from './Button'
+import axios from 'axios'
+function menu(){
+
+}
+
+
+
+
+
+
+function showBooks() {
+  const {count, setCount} = useState(0);
+
+
+  return(
+    <>
+    function Addcount() {
+      setCount(count+1)
+
+    }
+
+
+
+
+        <div class = "Book_container">
+
+        </div>
+    </>
+  )
+}
 
 function App() {
+  const [userdata, setUserData] = useState("");
+
+  const ConnectingServer = async () =>{
+    try{
+      const ApiUrl = await axios.create("http://localhost:5001/")
+      const response = await axios.get("http://localhost:5001/");
+      setUserData(response.data.message);
+    }
+    catch(error){
+      setUserData("Server connection Error"+error);
+      console.log("Error", error)
+    }
+  } 
+
+
+
   return (
+    <>
+      <h1>Online book store management system</h1>
+      <button onClick={ConnectingServer}>To connect Server</button>
+      <h3>{userdata}</h3>
+      
     <div className="app" id="home">
       <header className="site-header">
         <p className="site-eyebrow">Welcome to</p>
@@ -31,6 +84,7 @@ function App() {
 
       <footer className="site-footer">Online Book Store</footer>
     </div>
+    </>
   )
 }
 
